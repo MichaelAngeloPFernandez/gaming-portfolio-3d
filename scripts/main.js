@@ -14,12 +14,12 @@ class Application {
             isMuted: false,
             achievements: {
                 boot: { id: "boot", name: "SYSTEM BOOTED", desc: "Successfully initialize Neural Link.", unlocked: false, icon: "🔌", bonus: 100 },
-                pc_view: { id: "pc_view", name: "PC RIG MOUNTED", desc: "Access the PC Sector mainframe.", unlocked: false, icon: "🖥️", bonus: 100 },
+                pc_view: { id: "pc_view", name: "PC SECTOR MOUNTED", desc: "Access the PC Sector mainframe.", unlocked: false, icon: "🖥️", bonus: 100 },
                 mob_view: { id: "mob_view", name: "HANDHELD SYNCED", desc: "Establish sync with Mobile Sector.", unlocked: false, icon: "📱", bonus: 100 },
                 con_view: { id: "con_view", name: "CONTROLLER BOUND", desc: "Unlock local Console console.", unlocked: false, icon: "🎮", bonus: 100 },
-                qa_junior: { id: "qa_junior", name: "QA ASSISTANT", desc: "Inspect QA sheets of 3 games.", unlocked: false, icon: "🔍", bonus: 150 },
-                qa_lead: { id: "qa_lead", name: "QA LEAD TESTER", desc: "Audit QA details of 10 games.", unlocked: false, icon: "🏆", bonus: 250 },
-                completionist: { id: "completionist", name: "GRANDMASTER", desc: "Explore all sectors & inspect 15 games.", unlocked: false, icon: "👑", bonus: 500 }
+                explorer: { id: "explorer", name: "GAME EXPLORER", desc: "Explore details of 5 games.", unlocked: false, icon: "🔍", bonus: 150 },
+                veteran: { id: "veteran", name: "GAME VETERAN", desc: "Explore details of 15 games.", unlocked: false, icon: "🏆", bonus: 250 },
+                completionist: { id: "completionist", name: "GRANDMASTER", desc: "Explore all sectors & review 20 games.", unlocked: false, icon: "👑", bonus: 500 }
             }
         };
 
@@ -167,9 +167,9 @@ class Application {
 
     runStartupLoader() {
         const logs = [
-            "Initializing QA Core Engine...",
+            "Initializing Core Engine...",
             "Loading shaders: PC/Mobile/Console...",
-            "Parsing database indices: 40 entries found...",
+            "Parsing database indices: 42 entries found...",
             "Compiling chiptune sound generator...",
             "Mapping interactive 3D layout bounds...",
             "Connecting to MichaelAngeloPFernandez.github.io...",
@@ -328,7 +328,7 @@ class Application {
         // Setup pane titles
         this.dom.gamesTitle.textContent = `${platform.toUpperCase()} MAIN DIRECTORY`;
         this.dom.gamesTitle.className = `games-pane-title title-${platform}`;
-        this.dom.gamesCount.textContent = `${filteredGames.length} QA ITEMS`;
+        this.dom.gamesCount.textContent = `${filteredGames.length} GAMES`;
 
         // Render card grids
         this.dom.gamesGrid.innerHTML = '';
@@ -337,12 +337,13 @@ class Application {
             card.className = 'game-card';
             card.dataset.id = g.id;
             card.style.setProperty('--card-glow', g.theme.glow);
-            card.style.background = `linear-gradient(135deg, ${g.theme.from}, ${g.theme.to})`;
+            // Set real background cover image
+            card.style.backgroundImage = `linear-gradient(to bottom, rgba(6, 9, 19, 0.2) 0%, rgba(6, 9, 19, 0.9) 100%), url('${g.image}')`;
             card.style.animationDelay = `${idx * 40}ms`;
 
             // Custom indicator layout inside card
             card.innerHTML = `
-                <div class="card-icon-overlay">⚙️</div>
+                <div class="card-icon-overlay">🎮</div>
                 <div class="card-content">
                     <h4 class="card-title">${g.title}</h4>
                     <div class="card-meta">
@@ -370,7 +371,8 @@ class Application {
         this.dom.inspectTitle.textContent = game.title;
         this.dom.inspectPlatform.textContent = game.platform;
         this.dom.inspectGenre.textContent = game.genre;
-        this.dom.inspectHeaderArt.style.background = `linear-gradient(135deg, ${game.theme.from}, ${game.theme.to})`;
+        // Set real cover image for inspector header
+        this.dom.inspectHeaderArt.style.backgroundImage = `linear-gradient(to bottom, rgba(6, 9, 19, 0.2) 0%, rgba(6, 9, 19, 0.95) 100%), url('${game.image}')`;
         
         // Setup color styling variables for inspector
         this.dom.inspector.style.setProperty('--inspector-color', game.theme.glow);
@@ -381,14 +383,12 @@ class Application {
         const b = parseInt(hex.substring(4,6), 16);
         this.dom.inspector.style.setProperty('--inspector-rgb', `${r}, ${g}, ${b}`);
 
-        // Ingest QA notes list
-        this.dom.inspectQANotes.innerHTML = '';
-        game.qaNotes.forEach(note => {
-            const li = document.createElement('li');
-            li.className = 'qa-note-item';
-            li.textContent = note;
-            this.dom.inspectQANotes.appendChild(li);
-        });
+        // Inject simple game description instead of QA notes list
+        this.dom.inspectQANotes.innerHTML = `
+            <p class="inspect-desc-text" style="font-family: var(--font-body); font-size: 19px; line-height: 1.5; color: var(--text-muted); padding: 5px 0;">
+                ${game.description}
+            </p>
+        `;
 
         // 2. Open Modal
         this.dom.inspector.classList.add('show');
@@ -457,16 +457,16 @@ class Application {
     checkInspectMilestones() {
         const count = this.state.inspected.length;
         
-        if (count >= 3) {
-            this.unlockAchievement('qa_junior');
+        if (count >= 5) {
+            this.unlockAchievement('explorer');
         }
-        if (count >= 10) {
-            this.unlockAchievement('qa_lead');
+        if (count >= 15) {
+            this.unlockAchievement('veteran');
         }
         
         // Grandmaster completion check
         const visitedAll = Object.values(this.state.visited).every(v => v === true);
-        if (visitedAll && count >= 15) {
+        if (visitedAll && count >= 20) {
             this.unlockAchievement('completionist');
         }
     }

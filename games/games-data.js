@@ -1,6 +1,6 @@
 /* ============================================================
    3D Gaming Portfolio — Game Database
-   Contains categorized games and QA Tester Notes.
+   Contains categorized games, descriptions, and cover image URLs.
    ============================================================ */
 
 const GAMES_DATA = [
@@ -13,15 +13,11 @@ const GAMES_DATA = [
         genre: "Sandbox / Survival",
         theme: {
             from: "#2c5e2e",
-            to: "#a0522d",
+            to: "#1a0e0d",
             glow: "#39ff14"
         },
-        qaNotes: [
-            "Tested boundary conditions of chunk rendering and loading delays during rapid movement.",
-            "Verified tick-rate calculations of redstone repeater circuits and piston activation timings.",
-            "Investigated physics engine interactions, specifically voxel collision meshes and item-dropping velocity.",
-            "Audited memory leak patterns under high entity-count spawns and optimized chunk storage limits."
-        ]
+        image: "https://images.unsplash.com/photo-1605901309584-818e25960a8f?auto=format&fit=crop&w=500&q=80",
+        description: "A creative voxel sandbox game where players mine resources, craft tools, and build structures in a procedurally generated open-world environment."
     },
     {
         id: "prototype-1-2",
@@ -34,12 +30,8 @@ const GAMES_DATA = [
             to: "#1a0404",
             glow: "#ff0000"
         },
-        qaNotes: [
-            "Evaluated action combat input buffering during rapid, multi-key combo execution.",
-            "Monitored ragdoll physics stability and mesh deformation during dense, high-impact environment destruction.",
-            "Tested camera occlusion systems and pitch/yaw speed curves in tight alleys and skyscrapers.",
-            "Analyzed frame-pacing and texture streaming during high-speed gliding across Manhattan."
-        ]
+        image: "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/115320/header.jpg",
+        description: "An action-heavy open-world game following shape-shifting protagonists who run up buildings, consume enemies, and fight biological infections in Manhattan."
     },
     {
         id: "green-hell",
@@ -52,12 +44,8 @@ const GAMES_DATA = [
             to: "#0d1a0e",
             glow: "#32cd32"
         },
-        qaNotes: [
-            "Verified survival status calculations (macronutrients: fats, carbs, proteins) against in-game timers.",
-            "Tested animal AI pathfinding meshes on extremely rugged, vertical jungle terrain and water interfaces.",
-            "Audited dynamic weather shader transitions (sun to heavy rain) for performance drops and asset popping.",
-            "Checked item storage collision boxes, ensuring items dropped inside shelters do not clip through terrain."
-        ]
+        image: "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/815370/header.jpg",
+        description: "A hyper-realistic survival simulator set in the Amazon jungle, demanding careful management of physical health, nutrition, and mental stability."
     },
     {
         id: "csgo",
@@ -70,12 +58,8 @@ const GAMES_DATA = [
             to: "#de9b35",
             glow: "#ffd700"
         },
-        qaNotes: [
-            "Analyzed weapon recoil pattern spray consistency across varying tick rates (64-tick vs 128-tick servers).",
-            "Tested hitbox registration on climbing animations, ladder transitions, and jumping states.",
-            "Investigated smoke grenade particle opacity levels, checking for rendering exploitation and mesh clipping.",
-            "Audited sound propagation physics, testing spatial audio occlusion through walls and differing surface materials."
-        ]
+        image: "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/730/header.jpg",
+        description: "A premiere competitive 5v5 tactical first-person shooter centered on bomb defusal and hostage rescue, demanding precise team coordination and recoil aiming control."
     },
     {
         id: "pubg-pc",
@@ -88,16 +72,12 @@ const GAMES_DATA = [
             to: "#1c1c1c",
             glow: "#e58a13"
         },
-        qaNotes: [
-            "Tested vehicle suspension physics stability and tipping thresholds over highly uneven terrain.",
-            "Audited long-range Level of Detail (LOD) assets, verifying terrain meshes match physical collision limits.",
-            "Tested client-server replication of projectile trajectory physics, wind resistance, and gravity drops.",
-            "Investigated camera clipping through buildings while in prone position against structural corners."
-        ]
+        image: "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/578080/header.jpg",
+        description: "The pioneer battle royale game where 100 players parachute onto a massive map, loot weapons, and fight to be the last survivor as the play zone shrinks."
     },
     {
         id: "rainbow-six-siege-pc",
-        title: "Rainbow Six Siege (PC & Mobile)",
+        title: "Rainbow Six Siege",
         category: "pc",
         platform: "PC / Mobile",
         genre: "Tactical Shooter",
@@ -106,12 +86,8 @@ const GAMES_DATA = [
             to: "#1c2e4a",
             glow: "#4da6ff"
         },
-        qaNotes: [
-            "Tested procedural wall destruction calculations, verifying clipping physics for debris and line-of-sight.",
-            "Audited sound propagation pathways, checking how auditory cues travel around door frames and bullet holes.",
-            "Cross-platform synchronization testing, validating match state integrity and server latency.",
-            "Verified UI scaling and button layout responsiveness across high-DPI PC monitors and mobile screens."
-        ]
+        image: "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/359550/header.jpg",
+        description: "A highly tactical team shooter focusing on close-quarters combat, breach-and-defend operators, and procedurally destructible walls and floors."
     },
     {
         id: "burnout",
@@ -124,12 +100,8 @@ const GAMES_DATA = [
             to: "#141115",
             glow: "#ff5500"
         },
-        qaNotes: [
-            "Tested collision bounding boxes during high-speed intersections to trigger 'Takedown' events.",
-            "Verified action-camera transitions (slow-motion cinematic triggers) for stability and visual artifacting.",
-            "Checked motion blur shader pipelines under maximum speed thresholds to ensure frame rates remain above 60fps.",
-            "Audited force feedback telemetry signals to steering controllers, testing polling responsiveness."
-        ]
+        image: "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1238080/header.jpg",
+        description: "An arcade racing game famous for aggressive speed limits, crash-heavy mechanics, takedowns, and spectacular slow-motion crash cinematics."
     },
     {
         id: "nfs-underground",
@@ -142,31 +114,10 @@ const GAMES_DATA = [
             to: "#000000",
             glow: "#ff00ff"
         },
-        qaNotes: [
-            "Tested car modification skeletal meshes, identifying cosmetic part clipping across 50+ body kits.",
-            "Verified nitrous-oxide (NOS) speed multipliers, camera FOV changes, and tail-light trail shaders.",
-            "Audited wet asphalt reflection shaders and rain drop particle systems under rapid speed adjustments.",
-            "Inspected environment barrier collision zones, ensuring vehicles do not phase out of track boundaries."
-        ]
+        image: "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=500&q=80",
+        description: "A legendary street racing game focusing on tuner car culture, nighttime neon tracks, extensive cosmetic car customization, and high-speed drift events."
     },
-    {
-        id: "standoff-2",
-        title: "Standoff 2",
-        category: "pc",
-        platform: "PC (Emulated)",
-        genre: "First-Person Shooter",
-        theme: {
-            from: "#3c1518",
-            to: "#1a0607",
-            glow: "#da1e28"
-        },
-        qaNotes: [
-            "Tested touch-to-key emulator mapping configs for input latency and command queue conflicts.",
-            "Checked weapon recoil consistency when running at high frame rates (120 FPS+ emulated layout).",
-            "Audited visual rendering performance and HUD scaling on virtualized Android operating systems.",
-            "Monitored network packet loss recovery systems during rapid rotation of character view."
-        ]
-    },
+
     {
         id: "starcraft",
         title: "Starcraft",
@@ -178,16 +129,12 @@ const GAMES_DATA = [
             to: "#07575b",
             glow: "#66fcf1"
         },
-        qaNotes: [
-            "Audited unit pathfinding algorithms in extreme bottle-neck chokepoints with 200+ active units.",
-            "Tested Fog-of-War grid updates, verifying map-uncover delays do not leak enemy coordinates in memory.",
-            "Tested APM (Actions Per Minute) high-input buffer queues, ensuring commands are not dropped or corrupted.",
-            "Checked UI selection box bounding volumes under high sprite density environments."
-        ]
+        image: "https://images.unsplash.com/photo-1612287230202-1bf1d85d1bdf?auto=format&fit=crop&w=500&q=80",
+        description: "A legendary sci-fi real-time strategy game focusing on resource gathering, base building, and massive skirmishes between Terran, Zerg, and Protoss factions."
     },
     {
         id: "war-thunder-mobile",
-        title: "War Thunder (Mobile & PC)",
+        title: "War Thunder",
         category: "pc",
         platform: "PC / Mobile",
         genre: "Vehicular Combat",
@@ -196,12 +143,8 @@ const GAMES_DATA = [
             to: "#1d3557",
             glow: "#e63946"
         },
-        qaNotes: [
-            "Validated flight physics modeling, testing lift, drag, and stall calculations against mock aeronautic tables.",
-            "Verified volumetric armor penetration calculations, ensuring shell angles match displacement formulas.",
-            "Audited tank tread physics over mud, ice, and pavement terrain variables on mobile processors.",
-            "Tested touchscreen joystick sensitivity curves against physical mouse flight mapping."
-        ]
+        image: "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/236390/header.jpg",
+        description: "A massive multiplayer vehicular combat simulator featuring detailed WW2 and modern tanks, fighter jets, and naval fleets in cooperative maps."
     },
     {
         id: "resident-evil-4",
@@ -214,12 +157,50 @@ const GAMES_DATA = [
             to: "#2d0b00",
             glow: "#b30000"
         },
-        qaNotes: [
-            "Tested third-person over-the-shoulder camera positioning, preventing clipping through thin wall surfaces.",
-            "Verified Quick-Time Event (QTE) input frame windows, checking for differences between 30 and 60 FPS modes.",
-            "Audited interactive laser pointer rendering logic and distance hit-check raycast ranges.",
-            "Checked keyframe skeletal animation transitions when interrupting reloads with melee kicks."
-        ]
+        image: "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/2050650/header.jpg",
+        description: "An action-survival horror masterpiece following agent Leon S. Kennedy on a rescue mission in a rural European village overrun by parasitic cultists."
+    },
+    {
+        id: "resident-evil-4-mobile",
+        title: "Resident Evil 4",
+        category: "mobile",
+        platform: "iPhone / Mobile",
+        genre: "Survival Horror / Action",
+        theme: {
+            from: "#1c1c1c",
+            to: "#2d0b00",
+            glow: "#b30000"
+        },
+        image: "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/2050650/header.jpg",
+        description: "An action-survival horror masterpiece following agent Leon S. Kennedy on a rescue mission in a rural European village overrun by parasitic cultists."
+    },
+    {
+        id: "bapbap",
+        title: "Bapbap",
+        category: "pc",
+        platform: "PC",
+        genre: "Top-down Battle Royale",
+        theme: {
+            from: "#1b5e20",
+            to: "#002700",
+            glow: "#66bb6a"
+        },
+        image: "https://images.unsplash.com/photo-1553481187-be93c21490a9?auto=format&fit=crop&w=500&q=80",
+        description: "A top-down arcade battle royale game focusing on casual isometric controls, rapid matches, scoring maps, and unique weapon skill-shots."
+    },
+    {
+        id: "standoff-2",
+        title: "Standoff 2",
+        category: "mobile",
+        platform: "Mobile",
+        genre: "First-Person Shooter",
+        theme: {
+            from: "#3c1518",
+            to: "#1a0607",
+            glow: "#da1e28"
+        },
+        image: "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1677350/header.jpg",
+        description: "A fast-paced mobile first-person shooter featuring tactical game modes, weapon skins, and rapid round matches."
     },
     {
         id: "gta-san-andreas",
@@ -232,12 +213,8 @@ const GAMES_DATA = [
             to: "#000000",
             glow: "#00ff66"
         },
-        qaNotes: [
-            "Tested legacy physics bugs (e.g., swimming speed, vehicle weight) running on modern 60+ FPS configs.",
-            "Audited ambient audio sound-trigger zone grids, identifying spatial fading volume bugs.",
-            "Investigated cheat code script interpreter queues, checking for game memory heap corruption.",
-            "Tested local police spawning algorithms, verifying visibility occlusion bounds function correctly."
-        ]
+        image: "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1546990/header.jpg",
+        description: "An iconic open-world gangland crime sandbox set across 1990s Los Santos, San Fierro, and Las Venturas, telling the story of Carl CJ Johnson."
     },
     {
         id: "gta-v",
@@ -250,12 +227,8 @@ const GAMES_DATA = [
             to: "#0b0c10",
             glow: "#1f2833"
         },
-        qaNotes: [
-            "Measured dynamic character-switching load timelines, identifying texture-load bottleneck points.",
-            "Verified script state transitions during complex multi-stage heist missions under player deviation.",
-            "Audited underwater buoyancy physics meshes and vehicle control constraints.",
-            "Checked AI traffic pathfinding responses to road blockages and player-generated hazards."
-        ]
+        image: "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/271590/header.jpg",
+        description: "A blockbuster open-world action-thriller following three distinct criminals pulled into elaborate heists across the sprawling city of Los Santos."
     },
 
     // MOBILE PLATFORM (23 games)
@@ -270,12 +243,8 @@ const GAMES_DATA = [
             to: "#1a252f",
             glow: "#ffffff"
         },
-        qaNotes: [
-            "Validated complete move rule evaluation logic (castling, en passant, promotion, checkmate, stalemate).",
-            "Tested action undo/redo history stacks, verifying state persistence and memory allocation.",
-            "Audited network board synchronicity, verifying move parsing under unstable cellular packet drop conditions.",
-            "Checked board interaction coordinates, ensuring drag-and-drop actions align with grid cells."
-        ]
+        image: "https://images.unsplash.com/photo-1529699211952-734e80c4d42b?auto=format&fit=crop&w=500&q=80",
+        description: "The classic game of chess played on mobile, testing analytical strategy, position mapping, and tactical forecasting against bots or worldwide players."
     },
     {
         id: "game-of-the-generals",
@@ -288,12 +257,8 @@ const GAMES_DATA = [
             to: "#0d2b20",
             glow: "#00ff88"
         },
-        qaNotes: [
-            "Verified hidden ranking mask integrity, ensuring piece ranks are never exposed in client RAM.",
-            "Tested referee arbiter comparison logic, verifying correct win/loss/draw outcomes for all pieces.",
-            "Checked drag-and-drop touch response latencies on screen edges and notch overlays.",
-            "Audited game-room setup states, testing matchmaking lobby persistence on disconnected reconnects."
-        ]
+        image: "https://images.unsplash.com/photo-1611195974226-a6a9be9dd763?auto=format&fit=crop&w=500&q=80",
+        description: "An adaptation of the popular Filipino board game focusing on hidden ranking logic, deception, and capturing the opponent's flag."
     },
     {
         id: "call-of-war",
@@ -306,12 +271,8 @@ const GAMES_DATA = [
             to: "#1b0000",
             glow: "#d32f2f"
         },
-        qaNotes: [
-            "Tested database sync consistency for multi-day, real-time strategy campaigns with 500+ active entities.",
-            "Verified push notification service triggers, ensuring correct timestamp matching for resource finishes.",
-            "Audited map camera zoom levels and coordinate scrolling performance on low-spec mobile chips.",
-            "Tested server reconnect algorithms, verifying user commands queue correctly when offline."
-        ]
+        image: "https://images.unsplash.com/photo-1518895949257-7621c3c786d7?auto=format&fit=crop&w=500&q=80",
+        description: "A massive, real-time multiplayer grand strategy campaign where players command nations during World War II, managing supply economies and troop deployments."
     },
     {
         id: "albion-online",
@@ -324,12 +285,8 @@ const GAMES_DATA = [
             to: "#2d1b10",
             glow: "#ffb300"
         },
-        qaNotes: [
-            "Evaluated mobile HUD element layout and scaling on small screens during high-density player events.",
-            "Tested touch-based spell target indicators, validating drag-to-aim accuracy and ground mesh projection.",
-            "Monitored dynamic asset streaming from local storage over cellular connections during zone transitions.",
-            "Checked virtual joystick drift boundaries, verifying navigation logic returns to zero state."
-        ]
+        image: "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/761890/header.jpg",
+        description: "A sandbox medieval MMORPG with a player-driven economy, classless equipment-based spell systems, and high-stakes PvP zone combat."
     },
     {
         id: "toram-online",
@@ -342,12 +299,8 @@ const GAMES_DATA = [
             to: "#1a0033",
             glow: "#e040fb"
         },
-        qaNotes: [
-            "Tested skeletal mesh scaling and outfit combination clipping for highly customized characters.",
-            "Verified battle action state syncing in multiplayer party raid instances under varied ping rates.",
-            "Audited localized language strings, checking for UI text truncation and word wrap in menus.",
-            "Tested asset memory garbage collection during teleportation across 10+ distinct world zones."
-        ]
+        image: "https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=500&q=80",
+        description: "A popular anime open-world MMORPG featuring classless skill paths, comprehensive character customization, and cooperatively fought dungeon raids."
     },
     {
         id: "dragon-raja",
@@ -360,12 +313,8 @@ const GAMES_DATA = [
             to: "#001a1c",
             glow: "#00e5ff"
         },
-        qaNotes: [
-            "Evaluated Unreal Engine mobile graphics profiles, monitoring thermal impact and battery depletion curves.",
-            "Tested camera pitch/yaw collision rules against interior walls and character models.",
-            "Audited auto-pathing navigation meshes, ensuring player character does not get caught on geometry edges.",
-            "Checked physics-based hair and clothing animations during action combat frame transitions."
-        ]
+        image: "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=500&q=80",
+        description: "A visually stunning cyberpunk-meets-fantasy mobile MMORPG, featuring cinematic storytelling, real-time combat, and massive virtual social spaces."
     },
     {
         id: "mobile-legends",
@@ -378,12 +327,8 @@ const GAMES_DATA = [
             to: "#001b44",
             glow: "#29b6f6"
         },
-        qaNotes: [
-            "Tested hit-registration grids of skillshots and auto-attacks during high-frequency 5v5 teamfights.",
-            "Audited network ping compensation buffers, checking for desync between visual indicators and server states.",
-            "Tested touch virtual joystick tracking area responsiveness and dynamic centering.",
-            "Verified frame pacing and GPU load scaling on mid-tier mobile chipsets."
-        ]
+        image: "https://images.unsplash.com/photo-1560253023-3ec5d502959f?auto=format&fit=crop&w=500&q=80",
+        description: "A highly competitive 5v5 mobile arena brawler, where players draft heroes, secure lane objectives, and clash in fast teamfights to destroy the enemy core."
     },
     {
         id: "arena-breakout",
@@ -396,12 +341,8 @@ const GAMES_DATA = [
             to: "#0a0a0a",
             glow: "#757575"
         },
-        qaNotes: [
-            "Audited positional sound design and audio occlusion, verifying footstep directionality and range.",
-            "Tested touchscreen weapon recoil control, sway calculations, and ADS transition timings.",
-            "Checked grid-based inventory drag-and-drop systems, testing for item merging or duplication bugs.",
-            "Verified server-side hit validation and lag compensation algorithms under variable mobile ping."
-        ]
+        image: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=500&q=80",
+        description: "A tactical first-person extraction shooter, requiring players to search maps, survive fire encounters, and safely extract with loot in a dangerous battlefield."
     },
     {
         id: "farlight-84",
@@ -414,12 +355,8 @@ const GAMES_DATA = [
             to: "#2d0f00",
             glow: "#ffab40"
         },
-        qaNotes: [
-            "Tested Jetpack boosting physics trajectories, wall collision detection, and air-dash frame resets.",
-            "Verified vehicle weapon collision volumes and passenger seating placement transitions.",
-            "Audited screen frame pacing and thermal throttling patterns on high-end Android devices.",
-            "Checked hero skill trigger animations, verifying action cancels and cooldown timers."
-        ]
+        image: "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1927080/header.jpg",
+        description: "A fast-paced battle royale featuring futuristic hero skill rosters, quick horizontal jetpack dashes, armored vehicle weapons, and high-energy shootouts."
     },
     {
         id: "pokemon-unite",
@@ -432,31 +369,10 @@ const GAMES_DATA = [
             to: "#0a0033",
             glow: "#7c4dff"
         },
-        qaNotes: [
-            "Tested score-depositing animation frames, verifying interruption logic by basic attacks and status effects.",
-            "Checked spawn timers and navigation behavior of wild Pokemon objectives (Rayquaza, Registeel).",
-            "Audited held-item stat modifier multipliers, validating math calculations match UI info cards.",
-            "Tested cross-platform lobby integrations, checking chat message formatting and invite links."
-        ]
+        image: "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=500&q=80",
+        description: "A team-based 5v5 MOBA where players capture wild Pokémon, defeat opponents, score goal points in scoring zones, and evolve their characters."
     },
-    {
-        id: "bapbap",
-        title: "Bapbap",
-        category: "mobile",
-        platform: "Mobile",
-        genre: "Top-down Battle Royale",
-        theme: {
-            from: "#1b5e20",
-            to: "#002700",
-            glow: "#66bb6a"
-        },
-        qaNotes: [
-            "Tested top-down twin-stick action control mapping and projectile direction line indicators.",
-            "Verified end-of-round score multipliers, currency awards, and database update transactions.",
-            "Audited memory allocation overhead, checking for memory leaks during long multi-game sessions.",
-            "Checked hitbox bounds of obstacles, ensuring project objects bounce cleanly without clipping."
-        ]
-    },
+
     {
         id: "cytus-2",
         title: "Cytus II",
@@ -468,12 +384,8 @@ const GAMES_DATA = [
             to: "#002d33",
             glow: "#00e5ff"
         },
-        qaNotes: [
-            "Validated beat-map sound sync accuracy across multiple Android audio latency engine configurations.",
-            "Tested multi-touch hit detection (up to 5 simultaneous touch points) and score multiplier zones.",
-            "Audited visual scan-line animation frame alignment, verifying it matches audio tracks within 5ms.",
-            "Checked system interrupt notifications (incoming calls, alarms) and automatic game pause triggers."
-        ]
+        image: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=500&q=80",
+        description: "A high-speed cyberpunk rhythm game, requiring players to hit, slide, and hold neon target notes as an active horizontal scanning line moves."
     },
     {
         id: "shadow-fight",
@@ -486,12 +398,8 @@ const GAMES_DATA = [
             to: "#05080c",
             glow: "#50b3ff"
         },
-        qaNotes: [
-            "Tested physics-based procedural animation blending, verifying weapon impact recoil poses.",
-            "Checked weapon-specific collision hitboxes and visual frame timings for blocks and parries.",
-            "Audited AI behavioral trees, verifying block/attack cycles across 5 difficulty presets.",
-            "Tested equipment stat progression formulas, verifying calculations against damage numbers."
-        ]
+        image: "https://images.unsplash.com/photo-1552072068-861b772ee170?auto=format&fit=crop&w=500&q=80",
+        description: "A hybrid action RPG and fighting game where players upgrade weapons and engage in physical 2D combat featuring shadow silhouettes."
     },
     {
         id: "tekken-mobile",
@@ -504,12 +412,8 @@ const GAMES_DATA = [
             to: "#110000",
             glow: "#ff2a2a"
         },
-        qaNotes: [
-            "Evaluated frames-per-second lock consistency under heavy particle attack triggers.",
-            "Tested input buffer queue for rapid combo commands, verifying animation execution order.",
-            "Checked character select textures, auditing texture streaming delays and model swap states.",
-            "Verified touchscreen hit/hurtbox interaction geometry during special move sets."
-        ]
+        image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=500&q=80",
+        description: "A mobile fighting adaptation of the legendary arcade fighter, featuring combo cards, martial arts combat styles, and fluid animations."
     },
     {
         id: "pubg-mobile",
@@ -522,12 +426,8 @@ const GAMES_DATA = [
             to: "#1c0d02",
             glow: "#ffaa00"
         },
-        qaNotes: [
-            "Tested mobile gyroscope aiming precision, drift correction, and axis scaling settings.",
-            "Audited client-side drawing limitations, checking rendering distances of players and grass objects.",
-            "Tested vehicle controls, monitoring frame pacing drops when vehicles impact map objects.",
-            "Checked voice communication channel latency and audio quality under mobile data connections."
-        ]
+        image: "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&w=500&q=80",
+        description: "The official pocket battle royale, featuring tactical matches, vehicular movement, recoil aiming, and coordinate squads map play."
     },
     {
         id: "master-duel",
@@ -540,12 +440,8 @@ const GAMES_DATA = [
             to: "#050e14",
             glow: "#ffd700"
         },
-        qaNotes: [
-            "Verified card effect sequence triggers (Chain Links), ensuring correct execution order.",
-            "Tested turn phase timer limits, validating client-server state checks during phase transitions.",
-            "Audited local database image caching, checking load times of high-res card artwork textures.",
-            "Tested card deck editor UI grid sorting, searching, and filter performance."
-        ]
+        image: "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1449850/header.jpg",
+        description: "The digital Yu-Gi-Oh! card dueling simulator, featuring deep deck construction and complex turn-phase rules."
     },
     {
         id: "smash-legends",
@@ -558,12 +454,8 @@ const GAMES_DATA = [
             to: "#004d40",
             glow: "#00e676"
         },
-        qaNotes: [
-            "Tested arena ring-out boundaries, checking knockback vector calculations on low HP levels.",
-            "Verified knockback distance scaling against character health percentages.",
-            "Audited matchmaking queue stability and automated fill algorithms.",
-            "Tested skill cooldown visual indicators, verifying animations align with active timers."
-        ]
+        image: "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1352080/header.jpg",
+        description: "A fast-paced multiplayer arena brawler, where players use combat skills to knock opponents out of dynamic stage boundaries."
     },
     {
         id: "crossfire-legends",
@@ -576,12 +468,8 @@ const GAMES_DATA = [
             to: "#10171a",
             glow: "#cfd8dc"
         },
-        qaNotes: [
-            "Tested firing rate frame synchronization across mobile processor architectures.",
-            "Verified headshot hitbox geometry alignment, tracking camera view adjustments.",
-            "Audited transition duration and network sync from lobby screen to active game state.",
-            "Checked touch movement drag sensitivity scaling on multi-touch devices."
-        ]
+        image: "https://images.unsplash.com/photo-1627856013091-fed6e4e30025?auto=format&fit=crop&w=500&q=80",
+        description: "A tactical mobile FPS featuring classic defusal maps, fast-paced fire gameplay, and multiple casual arcade game modes."
     },
     {
         id: "one-piece-bounty-rush",
@@ -594,12 +482,8 @@ const GAMES_DATA = [
             to: "#001b10",
             glow: "#a7ffeb"
         },
-        qaNotes: [
-            "Tested capture point bar animation scaling and capture zone bounds.",
-            "Verified network replication systems for real-time character positioning and rotation.",
-            "Audited dynamic map hazard trigger zones (e.g., rising water, falling rocks) for correct timing.",
-            "Tested target lock-on camera behavior in crowded character zones."
-        ]
+        image: "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=500&q=80",
+        description: "A 4v4 anime loot-and-capture brawler, where players choose distinct character classes to capture flags and score treasure points."
     },
     {
         id: "garena-delta-force",
@@ -612,12 +496,8 @@ const GAMES_DATA = [
             to: "#0c150c",
             glow: "#76ff03"
         },
-        qaNotes: [
-            "Evaluated tactical device deployment physics and mesh collision boundaries.",
-            "Tested projectile trajectory replication algorithms on server and clients.",
-            "Audited mobile graphical presets, benchmarking performance profiles across varying configurations.",
-            "Checked touchscreen aiming drag coefficient calculations under high target velocities."
-        ]
+        image: "https://images.unsplash.com/photo-1608889174633-5645f65057bc?auto=format&fit=crop&w=500&q=80",
+        description: "A tactical military military operation simulation featuring coordinated team breaching, projectile modeling, and customizable gadgets."
     },
     {
         id: "sao-integral-factor",
@@ -630,12 +510,8 @@ const GAMES_DATA = [
             to: "#000030",
             glow: "#5c6bc0"
         },
-        qaNotes: [
-            "Checked quest objective trigger points, ensuring state machine logs resolve correctly on map transitions.",
-            "Tested multi-player dungeon party loading, auditing scene asset management.",
-            "Audited character skill cooldown timers, verifying local HUD display matches server records.",
-            "Tested virtual button hitbox bounds for multi-touch finger inputs."
-        ]
+        image: "https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?auto=format&fit=crop&w=500&q=80",
+        description: "An action online RPG based on Sword Art Online, where players join party guilds to clear the complex levels of Aincrad."
     },
     {
         id: "mir4",
@@ -648,12 +524,8 @@ const GAMES_DATA = [
             to: "#0d0600",
             glow: "#d84315"
         },
-        qaNotes: [
-            "Tested auto-mining and auto-combat pathfinding navigation meshes in complex caves.",
-            "Verified PVP flag state changes, checking attack authorization boundaries in safe/hostile zones.",
-            "Audited database transaction queues during high volume character item inventory trades.",
-            "Tested server replication logs for massive, open-world boss fights."
-        ]
+        image: "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1623660/header.jpg",
+        description: "An Asian-fantasy MMORPG featuring auto-navigation quests, open-world guild battles, and trading resources."
     },
     {
         id: "cod-mobile",
@@ -666,12 +538,8 @@ const GAMES_DATA = [
             to: "#05080c",
             glow: "#f39c12"
         },
-        qaNotes: [
-            "Analyzed slide-jump movement mechanics, testing animation frames and velocity decay formulas.",
-            "Tested target aim-assist tracking curves, checking magnet range tolerances on multiple zoom scopes.",
-            "Audited map sound design propagation, ensuring steps reflect spatial coordinates accurately.",
-            "Checked weapons loadout asset loading speeds, checking for gun-model pop-in during warmups."
-        ]
+        image: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=500&q=80",
+        description: "The definitive pocket military shooter, containing fast slide-jump movement mechanics, Aim Assist adjustments, and iconic multiplayer maps."
     },
 
     // CONSOLE PLATFORM (3 games)
@@ -686,12 +554,8 @@ const GAMES_DATA = [
             to: "#1a0500",
             glow: "#ff5500"
         },
-        qaNotes: [
-            "Tested local cooperative split-screen performance, monitoring dynamic camera division bounds.",
-            "Verified environment interaction bounds, auditing grabbing and throwing objects physics.",
-            "Audited combat combo buffer windows, checking for drop frame impacts on inputs.",
-            "Tested mini-game input timers (lock picking, spray painting), validating timing curves."
-        ]
+        image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=500&q=80",
+        description: "A gritty brawler adapting the cult classic film, featuring cooperative local split-screen, physical environmental grabs, and combo combat mechanics."
     },
     {
         id: "def-jam",
@@ -704,12 +568,8 @@ const GAMES_DATA = [
             to: "#000000",
             glow: "#888888"
         },
-        qaNotes: [
-            "Verified interactive crowd collision boundaries and environmental weapon mechanics.",
-            "Tested skeletal deformation meshes and character models during grapple submission holds.",
-            "Audited ring-out trigger zones, verifying victory conditions are reached immediately.",
-            "Checked audio trigger consistency during cinematic knockout sequence playbacks."
-        ]
+        image: "https://images.unsplash.com/photo-1509569019056-47b23740f585?auto=format&fit=crop&w=500&q=80",
+        description: "An iconic wrestling-fighting hybrid, featuring interactive crowd hazards, submission holds, and hip-hop culture fighters."
     },
     {
         id: "guitar-hero",
@@ -722,11 +582,7 @@ const GAMES_DATA = [
             to: "#0c0014",
             glow: "#a600ff"
         },
-        qaNotes: [
-            "Tested peripheral hardware input polling frequency, checking for input drop frames.",
-            "Verified note chart scroll speed calibration, testing delay adjust settings down to 1ms.",
-            "Audited multitrack audio stems, verifying correct volume mute/unmute states on missed notes.",
-            "Checked multiplier star power triggers, validating graphics performance when overlays load."
-        ]
+        image: "https://images.unsplash.com/photo-1525201548982-be124ff4598f?auto=format&fit=crop&w=500&q=80",
+        description: "A legendary music rhythm game featuring guitar peripheral controllers, scroll-calibration curves, and classic rock audio tracks."
     }
 ];
