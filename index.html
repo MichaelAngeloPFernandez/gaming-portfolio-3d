@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self';">
+    <meta name="description" content="Michael Angelo Fernandez — Interactive 3D Gaming Portfolio showcasing video games played, QA audits, and testing details.">
+    <meta property="og:title" content="Michael Angelo Fernandez | 3D Gaming Portfolio">
+    <meta property="og:description" content="Interactive 3D Gaming Portfolio showcasing platform experiences and QA Tester notes.">
+    <meta property="og:image" content="assets/icons/logo.svg">
+    <meta property="og:type" content="website">
+    <title>Michael Angelo Fernandez | Gaming Portfolio</title>
+    
+    <link rel="stylesheet" href="styles/theme.css">
+    <link rel="stylesheet" href="styles/main.css">
+    
+    <!-- Three.js (Holographic core & raycasting selector) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+
+    <!-- SYSTEM VISUAL FLASH EFFECT -->
+    <div id="system-flash" class="system-flash"></div>
+
+    <!-- STARTUP LOADING SCREEN -->
+    <div id="loader">
+        <div class="hud-corner top-left"></div>
+        <div class="hud-corner top-right"></div>
+        <div class="hud-corner bot-left"></div>
+        <div class="hud-corner bot-right"></div>
+
+        <div class="loader-inner">
+            <div class="loader-logo-wrap">
+                <!-- SVG Inline logo -->
+                <svg class="loader-logo" viewBox="0 0 100 100">
+                    <polygon points="50,10 85,30 85,70 50,90 15,70 15,30" fill="none" stroke="#00f0ff" stroke-width="3" />
+                    <path d="M 46 36 L 36 36 L 36 64 L 64 64 L 64 50 L 50 50" fill="none" stroke="#00f0ff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M 52 36 L 52 64 M 52 36 L 64 36 L 64 50 L 52 50" fill="none" stroke="#b44fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </div>
+
+            <div class="loader-logs" id="loader-logs">
+                <!-- Boot logs injected dynamically -->
+            </div>
+
+            <p class="loader-text" id="loader-text">ESTABLISHING CONNECTION...</p>
+            <div class="loader-bar-wrap">
+                <div class="loader-bar-fill" id="loader-bar"></div>
+            </div>
+            <p class="loader-percent" id="loader-percent">0%</p>
+        </div>
+    </div>
+
+    <!-- LANDING SPLASH COVER -->
+    <div id="landing-page">
+        <div class="landing-content">
+            <div class="hud-corner top-left"></div>
+            <div class="hud-corner top-right"></div>
+            <div class="hud-corner bot-left"></div>
+            <div class="hud-corner bot-right"></div>
+            
+            <div class="landing-badge">QA INITIALIZATION CHIP</div>
+            <h1>MICHAEL ANGELO FERNANDEZ</h1>
+            <p class="landing-intro">
+                Gaming Portfolio – Showcasing my experience across multiple platforms to highlight my passion and readiness for a Junior Video Game QA Tester role.
+            </p>
+            <button id="press-start" class="cyber-btn">PRESS START</button>
+        </div>
+    </div>
+
+    <!-- INTERACTIVE DASHBOARD CONTAINER -->
+    <div id="game-interface" class="hidden">
+        <!-- Three.js Canvas mounts here -->
+        <canvas id="game-canvas"></canvas>
+
+        <!-- AUDIO MUTE TABS -->
+        <button id="audio-mute" class="audio-mute-toggle" aria-label="Mute Audio">🔊</button>
+
+        <!-- TOP HEADS-UP DISPLAY (HUD) -->
+        <div class="hud-top">
+            <div class="hud-player-card">
+                <div class="hud-avatar">👨‍💻</div>
+                <div class="player-meta">
+                    <div class="player-name-row">
+                        <span class="player-name">MICHAEL ANGELO</span>
+                        <span class="player-level">LV <span id="player-level">1</span></span>
+                    </div>
+                    <div class="xp-bar-container">
+                        <div id="xp-bar" class="xp-bar-fill"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hud-stats-wrap">
+                <div class="hud-chip">⭐ <span id="player-xp">0</span> XP</div>
+                <div class="hud-chip">🏆 <span id="badge-count">0</span>/7 BADGES</div>
+                <button id="exit-to-landing" class="exit-btn">SHUTDOWN</button>
+            </div>
+        </div>
+
+        <!-- BOTTOM NAVIGATION OVERLAY -->
+        <div class="hud-nav">
+            <button class="nav-btn" data-platform="pc">
+                <span class="nav-icon">🖥️</span> PC GAMES
+            </button>
+            <button class="nav-btn" data-platform="mobile">
+                <span class="nav-icon">📱</span> MOBILE
+            </button>
+            <button class="nav-btn" data-platform="console">
+                <span class="nav-icon">🎮</span> CONSOLE
+            </button>
+        </div>
+
+        <!-- TACTICAL GRID MINIMAP -->
+        <div class="minimap">
+            <div class="minimap-title">TACTICAL MAP</div>
+            <div class="minimap-grid">
+                <div class="minimap-cell" data-target="pc">
+                    <span class="minimap-label">PC</span>
+                    <span class="minimap-icon">🖥️</span>
+                </div>
+                <div class="minimap-cell" data-target="mobile">
+                    <span class="minimap-label">MOB</span>
+                    <span class="minimap-icon">📱</span>
+                </div>
+                <div class="minimap-cell" data-target="console">
+                    <span class="minimap-label">CON</span>
+                    <span class="minimap-icon">🎮</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ACHIEVEMENTS BADGE BAR -->
+        <button id="ach-toggle" class="achievements-toggle">
+            🏅 ACHIEVEMENTS
+        </button>
+
+        <div id="ach-modal" class="achievements-modal">
+            <div class="ach-modal-header">
+                <span class="ach-modal-title">SYSTEM AUDIT LOGS</span>
+                <button id="ach-close" class="ach-modal-close">✕</button>
+            </div>
+            <div id="ach-list" class="ach-list">
+                <!-- Achievements list injected by JS -->
+            </div>
+        </div>
+
+        <!-- PLATFORM GAMES DIRECTORY PANELS -->
+        <div id="games-pane" class="games-pane">
+            <div class="games-pane-header">
+                <span id="games-pane-title" class="games-pane-title">PC SECTOR</span>
+                <span id="games-count" class="games-count">0 ITEMS</span>
+                <button id="close-pane-btn" class="close-pane-btn">✕</button>
+            </div>
+            <div id="games-grid" class="games-grid">
+                <!-- Game cards injected by JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- GAME DETAILED INSPECTOR DIALOG -->
+    <div id="inspector" class="inspector-overlay">
+        <div class="inspector-panel">
+            <button id="inspect-close" class="inspector-close">✕</button>
+            
+            <div id="inspector-header-art" class="inspector-header-art">
+                <div class="inspector-header-text">
+                    <h3 id="inspect-title" class="inspector-title">MINECRAFT</h3>
+                    <div class="inspector-subtitle">
+                        <span>Platform: <strong id="inspect-platform" style="color:var(--inspector-color)">PC</strong></span>
+                        <span>Genre: <strong id="inspect-genre">Survival Sandbox</strong></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="inspector-body">
+                <div class="qa-header-row">
+                    <span class="qa-title">QA REVIEW SHEET</span>
+                    <span id="inspect-qa-status" class="qa-status-tag">STATUS: VERIFIED</span>
+                </div>
+                <ul id="inspect-qa-notes" class="qa-notes-list">
+                    <!-- QA notes list items injected by JS -->
+                </ul>
+            </div>
+
+            <div class="inspector-footer">
+                <span>SYSTEM INSPECT v2.0 // REPORT CODE: OK</span>
+                <span>SECURED CONNECTION</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ACHIEVEMENT FLOATING NOTIFICATION POPUP -->
+    <div id="ach-popup" class="achievement-unlocked-popup">
+        <div class="ach-popup-icon">🏆</div>
+        <div class="ach-popup-text">
+            <span class="ach-popup-subtitle">ACHIEVEMENT UNLOCKED</span>
+            <span id="ach-popup-title" class="ach-popup-title">SYSTEM REBOOT</span>
+        </div>
+    </div>
+
+    <!-- GAME DATA AND CONTROLLER SCRIPTS -->
+    <script src="games/games-data.js"></script>
+    <script src="scripts/audio.js"></script>
+    <script src="scripts/three-scene.js"></script>
+    <script src="scripts/main.js"></script>
+
+</body>
+</html>

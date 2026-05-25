@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <!-- Definitions for glowing filters -->
+  <defs>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Mobile phone rotated landscape -->
+  <rect x="12" y="24" width="76" height="52" rx="6" fill="none" stroke="#00f0ff" stroke-width="3" filter="url(#glow)" />
+  <!-- Screen border -->
+  <rect x="19" y="27" width="62" height="46" fill="none" stroke="#00f0ff" stroke-width="1.5" opacity="0.6" />
+
+  <!-- Speaker/Camera Notch (left side) -->
+  <path d="M 12 45 L 15 45 L 15 55 L 12 55" fill="none" stroke="#00f0ff" stroke-width="1.5" />
+
+  <!-- D-Pad / Joystick detail on left screen -->
+  <circle cx="31" cy="50" r="8" fill="none" stroke="#00f0ff" stroke-width="1.5" stroke-dasharray="2,2" filter="url(#glow)" opacity="0.8" />
+  <circle cx="31" cy="50" r="3" fill="none" stroke="#00f0ff" stroke-width="2" filter="url(#glow)" />
+
+  <!-- Action buttons detail on right screen -->
+  <circle cx="68" cy="44" r="2.5" fill="none" stroke="#00f0ff" stroke-width="2" filter="url(#glow)" />
+  <circle cx="74" cy="50" r="2.5" fill="none" stroke="#00f0ff" stroke-width="2" filter="url(#glow)" />
+  <circle cx="68" cy="56" r="2.5" fill="none" stroke="#00f0ff" stroke-width="2" filter="url(#glow)" />
+  <circle cx="62" cy="50" r="2.5" fill="none" stroke="#00f0ff" stroke-width="2" filter="url(#glow)" />
+</svg>
